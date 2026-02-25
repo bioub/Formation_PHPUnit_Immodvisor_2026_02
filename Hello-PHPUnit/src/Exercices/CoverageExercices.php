@@ -8,7 +8,7 @@ class CoverageExercices
      * Exercice 1
      * Somme des nombres pairs jusqu'à N
      */
-    public function sumEvenUntil(int $n): int
+    public static function sumEvenUntil(int $n): int
     {
         if ($n <= 0) {
             return 0;

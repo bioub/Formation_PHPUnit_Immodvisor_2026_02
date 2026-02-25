@@ -4,7 +4,7 @@ namespace App\Exercices;
 
 class ExceptionExercices
 {
-    public function safeDivide(int $a, int $b): float
+    public static function safeDivide(int $a, int $b): float
     {
         if ($b === 0) {
             throw new \InvalidArgumentException("Division by zero");
