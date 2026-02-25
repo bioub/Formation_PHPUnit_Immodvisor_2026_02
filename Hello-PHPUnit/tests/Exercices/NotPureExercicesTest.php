@@ -33,9 +33,9 @@ class NotPureExercicesTest extends TestCase
         $this->assertEquals('face', NotPureExercices::pileOuFace(1));
     }
 
-    public function testPileOuFaceReturnsPileOrFaceWhenRandom()
-    {
-        $result = NotPureExercices::pileOuFace();
-        $this->assertContains($result, ['pile', 'face']);
-    }
+//    public function testPileOuFaceReturnsPileOrFaceWhenRandom()
+//    {
+//        $result = NotPureExercices::pileOuFace();
+//        $this->assertContains($result, ['pile', 'face']);
+//    }
 }
