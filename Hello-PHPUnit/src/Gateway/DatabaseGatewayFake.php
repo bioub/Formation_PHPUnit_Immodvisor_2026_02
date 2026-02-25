@@ -11,7 +11,7 @@ class DatabaseGatewayFake implements DatabaseGatewayInterface
         $this->dbs = $dbs;
     }
 
-    public function listDbs()
+    public function listDbs(): array
     {
         return $this->dbs;
     }

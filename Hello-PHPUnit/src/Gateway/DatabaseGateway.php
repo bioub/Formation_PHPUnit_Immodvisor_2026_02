@@ -11,7 +11,7 @@ class DatabaseGateway implements DatabaseGatewayInterface
         $this->pdo = $pdo;
     }
 
-    public function listDbs()
+    public function listDbs(): array
     {
         $stmt = $this->pdo->query('SHOW DATABASES');
 

@@ -2,6 +2,7 @@
 
 namespace App\Logger;
 
+use App\Writer\FileWriter;
 use App\Writer\WriterInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
@@ -10,7 +11,7 @@ class Logger implements LoggerInterface
 {
     use LoggerTrait;
 
-    protected $writer;
+    protected WriterInterface $writer;
 
     public function __construct(WriterInterface $writer)
     {

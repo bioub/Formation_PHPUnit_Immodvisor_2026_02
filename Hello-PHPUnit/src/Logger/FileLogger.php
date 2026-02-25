@@ -2,6 +2,15 @@
 
 namespace App\Logger;
 
+/*
+ * SOLID
+ * S : Single Responsibility Principle
+ * O : Open-Closed Principle
+ * L : Liskov Substitution Principle
+ * I : Interface Segregation Principle
+ * D : Dependency Inversion Principle
+ */
+
 class FileLogger
 {
     public function log($filePath, $level, $message): void

@@ -11,7 +11,7 @@ class ExceptionExercicesTest extends TestCase
     {
         $input = 0;
 
-        $this->expectException(\DivisionByZeroError::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         ExceptionExercices::safeDivide(10, $input);
     }

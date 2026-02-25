@@ -11,7 +11,7 @@ class FileWriter implements WriterInterface
         $this->fic = fopen($filePath, 'a');
     }
 
-    public function write($message)
+    public function write(string $message): void
     {
         fwrite($this->fic, "$message\n");
     }

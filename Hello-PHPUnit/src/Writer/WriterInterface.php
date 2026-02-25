@@ -5,5 +5,5 @@ namespace App\Writer;
 
 interface WriterInterface
 {
-    public function write($message);
+    public function write(string $message): void;
 }

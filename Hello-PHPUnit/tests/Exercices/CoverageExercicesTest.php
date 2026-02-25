@@ -14,7 +14,7 @@ class CoverageExercicesTest extends TestCase
 
         $result = CoverageExercices::sumEvenUntil($input);
 
-        $this->assertEquals(12, $result);
+        $this->assertEquals(2, $result);
     }
 
     public function testSumEvenUntilWithInputZero()

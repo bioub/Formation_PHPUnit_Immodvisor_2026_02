@@ -4,5 +4,5 @@ namespace App\Gateway;
 
 interface DatabaseGatewayInterface
 {
-    public function listDbs();
+    public function listDbs(): array;
 }
