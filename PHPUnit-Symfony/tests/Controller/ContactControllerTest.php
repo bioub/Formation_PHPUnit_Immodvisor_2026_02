@@ -26,4 +26,6 @@ class ContactControllerTest extends WebTestCase
         self::assertSelectorTextContains('body', 'Liste des contacts');
         self::assertSelectorTextContains('body', 'Toto');
     }
+
+
 }

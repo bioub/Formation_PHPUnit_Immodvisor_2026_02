@@ -14,4 +14,12 @@ class ContactApiTest extends ApiTestCase
         self::assertJsonContains(['@id' => '/api/contacts']);
         self::assertJsonContains(['totalItems' => 4]);
     }
+
+    public function testPost(): void {
+        $client = static::createClient();
+        $client->request('POST', '/api/contacts', ['json' => ['firstname' => 'Toto', 'lastname' => 'Tata'], 'headers' => ['Content-Type' => 'application/ld+json']]);
+
+        self::assertResponseIsSuccessful();
+
+    }
 }
