@@ -26,14 +26,7 @@ services:
 
 when@test:
     services:
-        _defaults:
-            autowire: true      # Automatically injects dependencies in your services.
-            autoconfigure: true # Automatically registers y
+        App\Manager\CompanyManager:
+            autowire: true
+            autoconfigure: true
             public: true
-
-        App\:
-            resource: '../src/'
-            exclude:
-                - '../src/DependencyInjection/'
-                - '../src/Entity/'
-                - '../src/Kernel.php'

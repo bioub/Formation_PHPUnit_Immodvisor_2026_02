@@ -13,6 +13,11 @@ class CompanyManagerTest extends KernelTestCase
     {
         $kernel = self::bootKernel();
 
+        $mock = $this->createMock(CompanyRepository::class);
+        $mock->expects(self::once())->method('findAll')->willReturn([]);
+
+        self::getContainer()->set(CompanyRepository::class, $mock);
+
         $manager = static::getContainer()->get(CompanyManager::class);
 
         $companies = $manager->getAll();
