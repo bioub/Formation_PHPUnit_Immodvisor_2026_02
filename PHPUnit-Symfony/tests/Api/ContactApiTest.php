@@ -20,6 +20,6 @@ class ContactApiTest extends ApiTestCase
         $client->request('POST', '/api/contacts', ['json' => ['firstname' => 'Toto', 'lastname' => 'Tata'], 'headers' => ['Content-Type' => 'application/ld+json']]);
 
         self::assertResponseIsSuccessful();
-
+        self::assertJsonContains(['id' => 5]);
     }
 }
