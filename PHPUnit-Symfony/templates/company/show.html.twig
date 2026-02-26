@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la société{% endblock %}
+
+{% block body %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0">Détails de la société</h2>
+            <a href="{{ path('app_company_index') }}" class="btn btn-sm btn-light">Retour à la liste</a>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-3 fw-bold">ID</div>
+                <div class="col-sm-9 text-muted">{{ company.id }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 fw-bold">Nom</div>
+                <div class="col-sm-9">{{ company.name }}</div>
+            </div>
+
+            <hr>
+            
+            <h3 class="h6 fw-bold mb-3">Contacts associés ({{ company.contacts|length }})</h3>
+            {% if company.contacts|length > 0 %}
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for c in company.contacts %}
+                                <tr>
+                                    <td>{{ c.firstname }}</td>
+                                    <td>{{ c.lastname }}</td>
+                                    <td>
+                                        <a href="{{ path('app_contact_show', {'id': c.id}) }}" class="btn btn-sm btn-outline-primary">Afficher</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted italic">Aucun contact associé à cette société.</p>
+            {% endif %}
+        </div>
+        {% if is_granted('ROLE_USER') %}
+            <div class="card-footer">
+                <a href="{{ path('app_company_update', {'id': company.id}) }}" class="btn btn-warning">Modifier</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

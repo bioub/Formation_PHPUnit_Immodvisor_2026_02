@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer un contact{% endblock %}
+
+{% block body %}
+    <div class="card border-danger shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h2 class="h5 mb-0">Confirmer la suppression</h2>
+        </div>
+        <div class="card-body">
+            <p>Êtes-vous sûr de vouloir supprimer le contact <strong>{{ contact.firstname }} {{ contact.lastname }}</strong> ?</p>
+            <p class="text-muted small">Cette action est irréversible.</p>
+        </div>
+        <div class="card-footer">
+            <form method="post" class="d-inline">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contact.id) }}">
+                <button name="confirm" value="oui" class="btn btn-danger">Oui, supprimer</button>
+                <button name="confirm" value="non" class="btn btn-secondary">Non, annuler</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

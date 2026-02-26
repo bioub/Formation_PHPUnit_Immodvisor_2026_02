@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afficher un contact{% endblock %}
+
+{% block body %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0">Détails du contact</h2>
+            <a href="{{ path('app_contact_index') }}" class="btn btn-sm btn-light">Retour à la liste</a>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-3 fw-bold">ID</div>
+                <div class="col-sm-9 text-muted">{{ contact.id }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 fw-bold">Prénom</div>
+                <div class="col-sm-9">{{ contact.firstname }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 fw-bold">Nom</div>
+                <div class="col-sm-9">{{ contact.lastname }}</div>
+            </div>
+            {% if contact.company %}
+                <div class="row mb-3">
+                    <div class="col-sm-3 fw-bold">Société</div>
+                    <div class="col-sm-9">
+                        <a href="{{ path('app_company_show', {'id': contact.company.id}) }}" class="btn btn-sm btn-outline-secondary">
+                            {{ contact.company.name }}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+            {% if contact.tags | length > 0 %}
+                <div class="row mb-3">
+                    <div class="col-sm-3 fw-bold">Tags</div>
+                    <div class="col-sm-9">
+                        {% for tag in contact.tags %}
+                            <span class="badge bg-info text-dark">{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer d-flex gap-2">
+            <a href="{{ path('app_contact_update', {'id': contact.id}) }}" class="btn btn-warning">Modifier</a>
+            <a href="{{ path('app_contact_delete', {'id': contact.id}) }}" class="btn btn-danger">Supprimer</a>
+        </div>
+    </div>
+{% endblock %}

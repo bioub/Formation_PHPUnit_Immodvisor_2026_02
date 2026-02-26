@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{#{% form_theme contactForm 'tailwind_2_layout.html.twig' %}#}
+
+{% block title %}Ajouter un contact{% endblock %}
+
+{% block body %}
+<h2>Ajouter un contact</h2>
+    {{ form_start(contactForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_row(contactForm.firstname) }}
+    {{ form_row(contactForm.lastname) }}
+    {{ form_row(contactForm.email) }}
+    {{ form_row(contactForm.phone) }}
+    {{ form_row(contactForm.description) }}
+    {{ form_row(contactForm.company) }}
+    {{ form_row(contactForm.tags) }}
+{#        <div>#}
+{#            {{ form_label(contactForm.lastname) }}#}
+{#            {{ form_widget(contactForm.lastname) }}#}
+{#            {{ form_errors(contactForm.lastname) }}#}
+{#        </div>#}
+        <button class="btn btn-primary">+</button>
+    {{ form_end(contactForm) }}
+
+{% endblock %}
